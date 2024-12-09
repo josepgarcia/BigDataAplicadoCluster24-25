@@ -1,0 +1,9 @@
+services:
+  ud00-contenedor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ud00
+    container_name: ud00-contenedor
+    ports:
+      - "22:22"

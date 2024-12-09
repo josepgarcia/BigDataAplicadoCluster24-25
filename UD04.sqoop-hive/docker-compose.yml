@@ -1,0 +1,18 @@
+services:
+  debianjava:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: debianjava_container
+    ###platform: linux/arm64
+    hostname: hadoop-master
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+      - WORK_DIR=/opt
+      - JAVA_HOME=/opt/openjdk-11
+    volumes:
+      - ../shared:/shared
+    ports:
+      - "22:22"
+    tty: true
+    stdin_open: true
