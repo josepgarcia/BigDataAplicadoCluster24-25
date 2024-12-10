@@ -22,7 +22,21 @@ RUN groupadd user && \
 RUN echo "user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 ###################################################
-# Expose ports
+# Configure SSH
+RUN mkdir /var/run/sshd
+RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
+RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+RUN echo 'user:123123' | chpasswd
+
+# Generate SSH host keys
+RUN ssh-keygen -A
+
+###################################################
 EXPOSE 22
 
-USER user
+#USER user
+USER root
+
+###################################################
+# Keep the container running and start ssh
+CMD ["/usr/sbin/sshd", "-D"]
