@@ -7,7 +7,7 @@ ENV JAVA_HOME=/opt/openjdk-11
 ENV HADOOP_VERSION=3.4.1
 ENV HADOOP_HOME=/opt/hadoop
 ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
-ENV HOSTNAME=hadoop-master
+ENV HOSTNAME=hadoop-cluster
 
 WORKDIR ${WORK_DIR}
 
@@ -54,13 +54,13 @@ RUN tar -zxvf /tmp/openjdk-11.0.1_linux-x64_bin.tar.gz -C ${JAVA_HOME} --strip-c
 # Install Hadoop
 COPY hadoop-${HADOOP_VERSION}.tar.gz ${WORK_DIR}
 RUN tar -xzvf ${WORK_DIR}/hadoop-${HADOOP_VERSION}.tar.gz && \
-    mv ${WORK_DIR}/hadoop-${HADOOP_VERSION} $HADOOP_HOME && \
+    mv ${WORK_DIR}/hadoop-${HADOOP_VERSION} ${HADOOP_HOME} && \
     rm ${WORK_DIR}/hadoop-${HADOOP_VERSION}.tar.gz
 
 # Copy configuration files
-COPY config/hadoop/* $HADOOP_HOME/etc/hadoop/
+COPY config/hadoop/* ${HADOOP_HOME}/etc/hadoop/
 
-RUN echo "export JAVA_HOME=/opt/openjdk-11" >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+RUN echo "export JAVA_HOME=/opt/openjdk-11" >> ${HADOOP_HOME}/etc/hadoop/hadoop-env.sh
 
 RUN mkdir -p ${HADOOP_HOME}/logs
 RUN mkdir -p /datos/{datanode,namenode}

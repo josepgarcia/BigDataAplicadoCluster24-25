@@ -114,11 +114,11 @@ fi
 
 
 ##### CONFIGURACIÓN JAVA
-export JAVA_HOME=/opt/openjdk-11
-export PATH=$PATH:/opt/openjdk-11/bin
+export JAVA_HOME=/usr/local/openjdk-11
+export PATH=$PATH:$JAVA_HOME/bin
 
 ##### CONFIGURACIÓN HADOOP
-export HADOOP_HOME=/opt/hadoop
+export HADOOP_HOME=/usr/local/hadoop
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
 export PATH=$PATH:$HADOOP_HOME/sbin
