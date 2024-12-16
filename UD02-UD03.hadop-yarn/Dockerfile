@@ -60,8 +60,6 @@ RUN tar -xzvf ${WORK_DIR}/hadoop-${HADOOP_VERSION}.tar.gz && \
 # Copy configuration files
 COPY config/hadoop/* ${HADOOP_HOME}/etc/hadoop/
 
-RUN echo "export JAVA_HOME=/opt/openjdk-11" >> ${HADOOP_HOME}/etc/hadoop/hadoop-env.sh
-
 RUN mkdir -p ${HADOOP_HOME}/logs
 RUN mkdir -p /datos/{datanode,namenode}
 RUN chown -R hadoop:hadoop /datos ${HADOOP_HOME}

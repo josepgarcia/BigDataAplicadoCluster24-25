@@ -434,7 +434,6 @@ export HADOOP_OS_TYPE=${HADOOP_OS_TYPE:-$(uname -s)}
 # export HADOOP_REGISTRYDNS_SECURE_EXTRA_OPTS="-jvm server"
 export JAVA_HOME=/usr/local/openjdk-11
 
-
 ## Para que funcione con docker
 ## Al crear el contenedor para la UD04, hemos de indicar con qué usuario hay que
 ## levantar hadoop
