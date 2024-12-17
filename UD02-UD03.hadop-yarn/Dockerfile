@@ -2,10 +2,10 @@ FROM debian:stable-slim
 
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
-ENV WORK_DIR=/opt
-ENV JAVA_HOME=/opt/openjdk-11
+ENV WORK_DIR=/usr/local
+ENV JAVA_HOME=/usr/local/openjdk-11
 ENV HADOOP_VERSION=3.4.1
-ENV HADOOP_HOME=/opt/hadoop
+ENV HADOOP_HOME=/usr/local/hadoop
 ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 ENV HOSTNAME=hadoop-cluster
 
