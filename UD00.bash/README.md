@@ -28,4 +28,4 @@ ssh user@localhost -p 2222
 
 - El puerto ssh (22) queda expuesto y pasa a ser el 2222
 
-docker run -it --name ud00container -p 2222:22 -v ./compartida:/mnt/host ud00
+docker run -it --name ud00-contenedor -p 2222:22 -v ./compartida:/mnt/host ud00-imagen

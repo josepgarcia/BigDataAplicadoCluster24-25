@@ -12,6 +12,11 @@ RUN apt-get update \
         vim \
         nano
 
+# Borramos las listas de paquetes
+# Para instalar algún paquete en el contenedor habremos de realizar
+# en primer lugar un apt-update
+RUN rm -rf /var/lib/apt/lists/*
+
 ###################################################
 # User configuration
 # Create user called "user" and group
@@ -32,6 +37,7 @@ RUN echo 'user:123123' | chpasswd
 RUN ssh-keygen -A
 
 ###################################################
+# El puerto 22 quedará accesible para el servicio SSH
 EXPOSE 22
 
 #USER user
