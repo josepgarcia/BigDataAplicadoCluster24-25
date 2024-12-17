@@ -1,5 +1,5 @@
 ## De la imagen ya creada en local ud02
-FROM ud02
+FROM ud02-imagen
 
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
