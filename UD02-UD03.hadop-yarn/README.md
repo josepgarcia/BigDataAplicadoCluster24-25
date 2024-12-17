@@ -10,13 +10,13 @@ https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.
 
 # Construir la imagen
 
-docker build -t ud02 .
+docker build -t ud02-imagen .
 
 # Creamos un contenedor que utilice la imagen creada
 
-docker run -it --name ud02-container \
+docker run -it --name ud02-contenedor \
  -p 9870:9870 \
  -p 8088:8088 \
  -p 9000:9000 \
  -p 8042:8042 \
- ud02
+ ud02-imagen
