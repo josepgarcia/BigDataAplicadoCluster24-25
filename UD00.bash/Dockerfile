@@ -1,6 +1,5 @@
 FROM debian:stable-slim
 
-###################################################
 # Install necessary packages
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
