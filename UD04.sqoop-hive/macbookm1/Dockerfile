@@ -19,7 +19,7 @@ WORKDIR ${WORK_DIR}
 USER root
 
 # Install HIVE
-COPY ./software/apache-hive-${HIVE_VERSION}.tar.gz /tmp/
+COPY ./apache-hive-${HIVE_VERSION}.tar.gz /tmp/
 RUN tar -xzvf /tmp/apache-hive-${HIVE_VERSION}.tar.gz
 RUN mv ${WORK_DIR}/apache-hive-${HIVE_VERSION} $HIVE_HOME
 

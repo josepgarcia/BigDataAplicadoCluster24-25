@@ -28,3 +28,4 @@ Temporary Items
 
 # Ignorar archivos específicos
 *.tar.gz
+*.tgz
