@@ -22,6 +22,7 @@ USER root
 COPY ./apache-hive-${HIVE_VERSION}.tar.gz /tmp/
 RUN tar -xzvf /tmp/apache-hive-${HIVE_VERSION}.tar.gz
 RUN mv ${WORK_DIR}/apache-hive-${HIVE_VERSION} $HIVE_HOME
+RUN rm /tmp/apache-hive-${HIVE_VERSION}.tar.gz
 
 # Copy configuration files
 COPY ./config/hive/* $HIVE_HOME/conf/

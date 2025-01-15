@@ -25,8 +25,11 @@ USER root
 COPY ./spark-${SPARK_VERSION}-bin-without-hadoop.tgz /tmp/
 RUN cd /tmp/ && tar -xzvf /tmp/spark-${SPARK_VERSION}-bin-without-hadoop.tgz
 RUN mv /tmp/spark-${SPARK_VERSION}-bin-without-hadoop $SPARK_HOME
+RUN rm /tmp/spark-${SPARK_VERSION}-bin-without-hadoop.tgz
 RUN chown -R hadoop:hadoop $SPARK_HOME
 
+USER hadoop
 # Add SPARK configuration
-RUN echo "export PATH=$PATH:/usr/local/spark/bin:/usr/local/spark/sbin" >> /home/hadoop/.bashrc
-RUN echo "export SPARK_DIST_CLASSPATH=$(hadoop classpath)" >> /home/hadoop/.bashrc
+COPY ./config/.bashrc /home/hadoop/
+#RUN echo "export PATH=$PATH:/usr/local/spark/bin:/usr/local/spark/sbin" >> /home/hadoop/.bashrc
+#RUN echo "export SPARK_DIST_CLASSPATH=$(hadoop classpath)" >> /home/hadoop/.bashrc
